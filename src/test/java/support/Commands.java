@@ -23,7 +23,7 @@ public class Commands extends Utils{
         System.out.println("######################################################");
         try{
             System.out.println("****** Vai clicar no elemento " +element + "******");
-            waitElementBeClickable(element, 10000);
+            waitElementBeClickable(element, 2000);
             getDriver().findElement(element).click();
             System.out.println("****** Clicou no elemento " +element + "******");
 
@@ -40,7 +40,7 @@ public class Commands extends Utils{
         System.out.println("######################################################");
         try{
             System.out.println("****** Vai preencher o campo " +element + "******");
-            waitElementBeVisible(element, 10000);
+            waitElementBeVisible(element, 2000);
             getDriver().findElement(element).sendKeys(value);
             System.out.println("****** Preencheu o campo " +element + "******");
         }catch (Exception error){

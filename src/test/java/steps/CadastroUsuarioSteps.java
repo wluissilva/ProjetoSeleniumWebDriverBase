@@ -1,11 +1,14 @@
 package steps;
 
+import cucumber.api.Scenario;
+import cucumber.api.java.After;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
 import pages.CadastroUsuarioPage;
 import pages.LoginPage;
 import runner.RunCucumber;
+import support.ScreenshotUtils;
 
 import static support.Utils.getRandomEmail;
 
@@ -35,6 +38,11 @@ public class CadastroUsuarioSteps extends RunCucumber {
     @Então("^vejo mensagem de usuário cadastrado com sucesso$")
     public void vejo_mensagem_cadastro_sucesso() {
         cadastroPage.verificaCadastroSucesso();
+    }
+
+    @After
+    public static void afterScenario(Scenario scenario){
+        ScreenshotUtils.addScreenshotOnScenario(scenario);
     }
 
 }
