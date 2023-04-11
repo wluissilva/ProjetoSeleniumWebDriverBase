@@ -29,5 +29,16 @@ jobs:
             chromedriver --url-base=/wd/hub &
             sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
 
-    - name: Run test
+    - name: Run Test
       run: mvn test -Dtest=RunCucumber -Dbrowser=chrome-ci
+
+    - name: Gerar Relatório
+      if: always()
+      run: mvn cluecumber-report:reporting
+
+    - name: Arquivar Relatório
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: report-tests
+        path: '**/formated-report/'
