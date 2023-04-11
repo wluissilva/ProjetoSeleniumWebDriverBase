@@ -34,7 +34,7 @@ jobs:
 
     - name: Gerar Relatório
       if: always()
-      run: cluecumber-report:reporting
+      run: mvn cluecumber-report:reporting
 
     - name: Arquivar Relatório
       if: always()
